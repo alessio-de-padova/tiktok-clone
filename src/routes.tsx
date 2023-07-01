@@ -7,11 +7,11 @@ import AppRoutes from './routes/app.routes';
 
 const Routes: React.FC = () => {
   return (
-    <AppContextProvider>
-      <NavigationContainer>
+    <NavigationContainer>
+      <AppContextProvider>
         <AppRoutes />
-      </NavigationContainer>
-    </AppContextProvider>
+      </AppContextProvider>
+    </NavigationContainer>
   );
 };
 
