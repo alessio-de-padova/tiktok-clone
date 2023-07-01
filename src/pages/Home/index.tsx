@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
-import server from '../../../server.json';
-import Feed from './Feed';
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
 import PagerView from 'react-native-pager-view';
 
-import {Container, Header, Text, Tab, Separator} from './styles';
+import server from '../../../server.json';
+import Feed from './Feed';
+
+import { Container, Header, Text, Tab, Separator } from './styles';
 
 const styles = StyleSheet.create({
   pagerView: {
@@ -27,12 +28,13 @@ const Home: React.FC = () => {
       </Header>
       <PagerView
         style={styles.pagerView}
-        orientation={'vertical'}
+        orientation="vertical"
         initialPage={0}
+        onPageSelected={e => setActive(e.nativeEvent.position)}
       >
         {server.feed.map(item => (
           <View key={item.id}>
-            <Feed item={item} play={Number(item.id) === active}/>
+            <Feed item={item} play={Number(item.id) === active} />
           </View>
         ))}
       </PagerView>
