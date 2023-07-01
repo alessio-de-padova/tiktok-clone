@@ -135,7 +135,8 @@ const Feed: React.FC<Props> = ({ play, item }) => {
                 borderRadius: 25,
               }}
               source={{
-                uri: 'https://avatars3.githubusercontent.com/u/45601574',
+                uri:
+                  'https://upload.wikimedia.org/wikipedia/commons/c/c4/Volodymyr_Zelensky_%2851941720577%29_%28cropped%29.jpg',
               }}
             />
           </Animated.View>
