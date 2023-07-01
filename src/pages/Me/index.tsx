@@ -3,8 +3,6 @@ import { ScrollView, Image } from 'react-native';
 
 import { MaterialIcons, AntDesign, FontAwesome } from '@expo/vector-icons';
 
-import avatar from '../../assets/avatar.png';
-
 import {
   Container,
   Title,

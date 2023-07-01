@@ -36,10 +36,10 @@ interface Props {
 }
 
 const Feed: React.FC<Props> = ({ play, item }) => {
-  const spinValue = new Animated.Value(0);
+  const rotateValue = new Animated.Value(0);
 
   Animated.loop(
-    Animated.timing(spinValue, {
+    Animated.timing(rotateValue, {
       toValue: 1,
       duration: 10000,
       easing: Easing.linear,
@@ -47,10 +47,12 @@ const Feed: React.FC<Props> = ({ play, item }) => {
     }),
   ).start();
 
-  const rotateProp = spinValue.interpolate({
+  const rotateAnimation = rotateValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
   });
+
+  console.log('rotateProp', rotateAnimation);
 
   return (
     <>
@@ -121,11 +123,7 @@ const Feed: React.FC<Props> = ({ play, item }) => {
               borderRadius: 50,
               borderWidth: 12,
               borderColor: '#292929',
-              // transform: [
-              //   {
-              //     rotate: play ? rotateProp : '0',
-              //   },
-              // ],
+              transform: [{ rotate: rotateAnimation }],
             }}
           >
             <Image
@@ -143,7 +141,7 @@ const Feed: React.FC<Props> = ({ play, item }) => {
 
           <Lottie
             source={musicFly}
-            progress={play ? spinValue : 0}
+            progress={play ? rotateValue : 0}
             style={{ width: 150, position: 'absolute', bottom: 0, right: 0 }}
           />
         </BoxAction>
