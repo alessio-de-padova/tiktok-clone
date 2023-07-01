@@ -121,11 +121,11 @@ const Feed: React.FC<Props> = ({ play, item }) => {
               borderRadius: 50,
               borderWidth: 12,
               borderColor: '#292929',
-              transform: [
-                {
-                  rotate: play ? rotateProp : 0,
-                },
-              ],
+              // transform: [
+              //   {
+              //     rotate: play ? rotateProp : '0',
+              //   },
+              // ],
             }}
           >
             <Image

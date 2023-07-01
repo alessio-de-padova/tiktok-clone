@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import { View } from 'react-native';
-
-import ViewPager from '@react-native-community/viewpager';
-
+import React, {useState} from 'react';
+import {View, StyleSheet} from 'react-native';
 import server from '../../../server.json';
 import Feed from './Feed';
+import PagerView from 'react-native-pager-view';
 
-import { Container, Header, Text, Tab, Separator } from './styles';
+import {Container, Header, Text, Tab, Separator} from './styles';
 
+const styles = StyleSheet.create({
+  pagerView: {
+    flex: 1,
+  },
+});
 const Home: React.FC = () => {
   const [tab, setTab] = useState(1);
   const [active, setActive] = useState(0);
@@ -22,20 +25,17 @@ const Home: React.FC = () => {
           <Text active={tab === 2}>For You</Text>
         </Tab>
       </Header>
-      <ViewPager
-        onPageSelected={e => {
-          setActive(e.nativeEvent.position);
-        }}
-        orientation="vertical"
-        style={{ flex: 1 }}
+      <PagerView
+        style={styles.pagerView}
+        orientation={'vertical'}
         initialPage={0}
       >
         {server.feed.map(item => (
           <View key={item.id}>
-            <Feed item={item} play={Number(item.id) === active} />
+            <Feed item={item} play={Number(item.id) === active}/>
           </View>
         ))}
-      </ViewPager>
+      </PagerView>
     </Container>
   );
 };
