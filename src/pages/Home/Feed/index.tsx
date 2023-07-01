@@ -52,8 +52,6 @@ const Feed: React.FC<Props> = ({ play, item }) => {
     outputRange: ['0deg', '360deg'],
   });
 
-  console.log('rotateProp', rotateAnimation);
-
   return (
     <>
       <LinearGradient
