@@ -45,7 +45,9 @@ const reducer = (state: AuthState, action: AuthAction): AuthState => {
   }
 };
 
-const AuthContext = createContext<AuthState>(initialAuthState);
+const AuthContext: React.Context<AuthState> = createContext<AuthState>(
+  initialAuthState,
+);
 
 interface AuthProviderProps {
   children: ReactNode;
